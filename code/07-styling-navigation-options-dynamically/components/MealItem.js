@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+
 import {
   View,
   Pressable,
@@ -5,13 +7,19 @@ import {
   Image,
   StyleSheet,
   Platform,
-} from 'react-native';
+} from "react-native";
 
-function MealItem({ title, imageUrl, duration, complexity, affordability }) {
+function MealItem({ id, title, imageUrl, duration, complexity, affordability }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.mealItem}>
       <Pressable
-        android_ripple={{ color: '#ccc' }}
+        onPress={() => {
+          navigation.navigate("MealItem", {
+            mealId: id,
+          });
+        }}
+        android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
       >
         <View style={styles.innerContainer}>
@@ -36,10 +44,10 @@ const styles = StyleSheet.create({
   mealItem: {
     margin: 16,
     borderRadius: 8,
-    overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
-    backgroundColor: 'white',
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
+    backgroundColor: "white",
     elevation: 4,
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
@@ -49,22 +57,22 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 200,
   },
   title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     fontSize: 18,
     margin: 8,
   },
   details: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     padding: 8,
   },
   detailItem: {
