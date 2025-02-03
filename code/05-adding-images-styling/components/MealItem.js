@@ -29,7 +29,6 @@ function MealItem({ title, imageUrl, duration, complexity, affordability }) {
     </View>
   );
 }
-
 export default MealItem;
 
 const styles = StyleSheet.create({
