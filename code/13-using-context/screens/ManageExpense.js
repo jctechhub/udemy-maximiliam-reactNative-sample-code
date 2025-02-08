@@ -34,7 +34,7 @@ function ManageExpense({ route, navigation }) {
         {
           description: 'Test!!!!',
           amount: 29.99,
-          date: new Date('2022-05-20'),
+          date: new Date('2025-02-05'),
         }
       );
     } else {
