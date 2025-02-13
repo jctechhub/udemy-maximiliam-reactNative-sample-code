@@ -13,8 +13,7 @@ function WelcomeScreen() {
   useEffect(() => {
     axios
       .get(
-        'https://react-native-course-3cceb-default-rtdb.firebaseio.com/message.json?auth=' +
-          token
+        'https://react-native-course-jc-default-rtdb.firebaseio.com/message.json?auth=' + token
       )
       .then((response) => {
         setFetchedMesssage(response.data);
